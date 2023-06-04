@@ -1,8 +1,14 @@
-let onResponse = false;
-const resultZoneAnswer = document.getElementById('results-zone-answer')
-
-if (onResponse === false) {
+const resultZoneAnswer = document.getElementById('results-zone-answer');
+let encriptado = false;
+let desencriptado = false;
+let mostrarLateral = false;
+if (mostrarLateral === false) {
     resultZoneAnswer.style.display = 'none'
+}
+
+const obtenerTextoH2 = () => {
+    const h2Element = document.getElementById('textoCopiar');
+    return h2Element.innerText;
 }
 
 const mostrarValor = () => {
@@ -12,56 +18,69 @@ const mostrarValor = () => {
 }
 
 const encriptar = () => {
-    let text = mostrarValor();
-    let encriptado = "";
+    let valorEncriptar;
+    if (encriptado === false && desencriptado === false) {
+        valorEncriptar = mostrarValor();
+    } else if (desencriptado === true) {
+        valorEncriptar = obtenerTextoH2();
+    }
+    let encriptacion = "";
 
-    for (let i = 0; i < text.length; i++) {
-        if (text[i] === "e") {
-            encriptado += "enter";
-        } else if (text[i] === "i") {
-            encriptado += "imes";
-        } else if (text[i] === "a") {
-            encriptado += "ai";
-        } else if (text[i] === "o") {
-            encriptado += "ober";
-        } else if (text[i] === "u") {
-            encriptado += "ufat";
+    for (let i = 0; i < valorEncriptar.length; i++) {
+        if (valorEncriptar[i] === "e") {
+            encriptacion += "enter";
+        } else if (valorEncriptar[i] === "i") {
+            encriptacion += "imes";
+        } else if (valorEncriptar[i] === "a") {
+            encriptacion += "ai";
+        } else if (valorEncriptar[i] === "o") {
+            encriptacion += "ober";
+        } else if (valorEncriptar[i] === "u") {
+            encriptacion += "ufat";
         } else {
-            encriptado += text[i];
+            encriptacion += valorEncriptar[i];
         }
     }
 
-    mostrarRespuesta(encriptado);
-    return encriptado;
+    encriptado = true
+    mostrarRespuesta(encriptacion);
+    return encriptacion;
 };
 
 const desencriptar = () => {
-    let text = [...encriptar()];
+    let valorDesencriptar;
+    if (encriptado === true) {
+        valorDesencriptar = obtenerTextoH2()
+    } else if (encriptado === false) {
+        valorDesencriptar = mostrarValor();
+    }
 
-    for (let i = 0; i < text.length; i++) {
-        if (text[i] === "e") {
-            text.splice(i + 1, 4);
-        } else if (text[i] === "i") {
-            text.splice(i + 1, 3);
-        } else if (text[i] === "a") {
-            text.splice(i + 1, 1);
-        } else if (text[i] === "o") {
-            text.splice(i + 1, 3);
-        } else if (text[i] === "u") {
-            text.splice(i + 1, 3);
+    let valorDesencriptarArrray = valorDesencriptar.split('');
+
+    for (let i = 0; i < valorDesencriptarArrray.length; i++) {
+        if (valorDesencriptarArrray[i] === "e") {
+            valorDesencriptarArrray.splice(i + 1, 4);
+        } else if (valorDesencriptarArrray[i] === "i") {
+            valorDesencriptarArrray.splice(i + 1, 3);
+        } else if (valorDesencriptarArrray[i] === "a") {
+            valorDesencriptarArrray.splice(i + 1, 1);
+        } else if (valorDesencriptarArrray[i] === "o") {
+            valorDesencriptarArrray.splice(i + 1, 3);
+        } else if (valorDesencriptarArrray[i] === "u") {
+            valorDesencriptarArrray.splice(i + 1, 3);
         }
     }
 
-    let textoDesencriptado = text.join("").replace(",", "")
+    desencriptado = true
+    let textoDesencriptado = valorDesencriptarArrray.join("").replace(",", "")
     mostrarRespuesta(textoDesencriptado);
     return textoDesencriptado;
 };
 
 const mostrarRespuesta = (texto) => {
-
     let resultsZone = document.getElementById('results-zone')
     let resultsZoneAnswer = document.getElementById('results-zone-answer')
-    if (onResponse === false) {
+    if (mostrarLateral === false) {
         resultsZone.style.display = 'none';
         resultsZoneAnswer.style.display = 'flex'
         resultsZoneAnswer.innerHTML = `<h2 id="textoCopiar">${texto}</h2> <button onclick="copiarTexto()" >Copy</button>`
@@ -69,10 +88,6 @@ const mostrarRespuesta = (texto) => {
 }
 
 const copiarTexto = () => {
-    // let h2Texto = document.getElementById('textoCopiar');
-    // h2Texto.select();
-    // document.execCommand("copy");
-
     const h2Texto = document.getElementById('textoCopiar');
 
     // Crear un elemento de entrada de texto temporal
