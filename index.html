@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="logo">
+            <img src="./assets/img/logo.png" alt="logo">
+        </div>
+        <div class="type-zone">
+            <textarea oninput="mostrarValor()" id="text" placeholder="Ingrese el texto aqui" cols="30"
+                rows="10"></textarea>
+            <div class="type-zone-bottom">
+                <div class="recommendation">
+                    <img src="./assets/img/letras_icon.png" alt="recommendation">
+                    <p>Solo letras minúsculas y sin acentos</p>
+                </div>
+                <div class="type-zone-buttons">
+                    <button onclick="encriptar()" id="encriptar">Encriptar</button>
+                    <button onclick="desencriptar()" id="desencriptar">Desencriptar</button>
+                </div>
+            </div>
+        </div>
+        <div id="results-zone" class="results-zone">
+            <img src="./assets/img/Muñeco.png" alt="Muñeco">
+            <h2>Ningún mensaje fue encontrado</h2>
+            <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+        </div>
+        <div id="results-zone-answer" class="results-zone-answer">
+            
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,438 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* html {} */
+
+:root {
+    --background: #E5E5E5;
+}
+
+body {
+    background-color: var(background);
+}
+
+
+
+.app-container {
+    width: calc(100vw - 80px);
+    height: calc(100vh - 160px);
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    width: 120px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo>img {
+    height: 100%;
+}
+
+.type-zone {
+    height: 100%;
+    width: 680px;
+    margin-top: 104px;
+    margin-left: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 40px;
+}
+
+.type-zone>textarea {
+    height: auto;
+    width: 680px;
+    border: none;
+    font-weight: 400;
+    font-size: 32px;
+    color: #0A3871;
+}
+
+.type-zone>textarea::placeholder {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 48px;
+    color: #0A3871;
+}
+
+.type-zone>textarea:focus {
+    outline: none;
+}
+
+/* textarea:focus {
+    border: none;
+} */
+
+.recommendation {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.recommendation>img {
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 8px;
+}
+
+.recommendation>p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #495057;
+}
+
+.type-zone-buttons {
+    width: 680px;
+    margin-bottom: 32px;
+}
+
+#encriptar {
+    width: 328px;
+    background-color: #0A3871;
+    color: #FFFFFF;
+    padding: 24px;
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#desencriptar {
+    width: 328px;
+    background-color: #D8DFE8;
+    color: #0A3871;
+    padding: 24px;
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.results-zone {
+    width: 400px;
+    height: auto;
+    padding-top: 243px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+}
+
+.results-zone>h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28.8px;
+    color: #343A40;
+    text-align: Center;
+    margin-bottom: 16px;
+}
+
+.results-zone>p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #495057;
+    text-align: Center;
+}
+
+/* .center{
+    margin: 0 auto;
+} */
+
+
+/* @media (min-width: 601px) and (max-width: 1024px) { 
+
+    .app-container {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+        height: 48px;
+        display: flex;
+        justify-content: start;
+    }
+
+
+    .type-zone>textarea {
+        height: auto;
+        width: auto;
+        border: none;
+        font-weight: 400;
+        font-size: 25px;
+        color: #0A3871;
+    }
+
+    .type-zone>textarea::placeholder {
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 30px;
+        color: #0A3871;
+    }
+
+    .type-zone-bottom {
+        width: auto;
+    }
+
+    .type-zone-buttons {
+        width: auto;
+    }
+
+    .results-zone {
+        width: auto;
+        height: auto;
+    }
+} */
+
+
+.results-zone-answer {
+    flex-direction: column;
+    margin-top: 6%;
+    font-size: 24px;
+    line-height: 36px;
+    color: #495057;
+    font-weight: 400;
+    width: 20%;
+    justify-content: space-between;
+}
+
+.results-zone-answer>h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.results-zone-answer>button {
+    width: 100%;
+    text-align: center;
+    padding: 24px;
+    border-radius: 24px;
+    border: solid 1px #0A3871;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        overflow-y: auto;
+    }
+
+    .type-zone,
+    .results-zone {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .type-zone>textarea {
+        width: 100%;
+        font-size: 24px;
+        padding: 16px;
+    }
+
+    .type-zone-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #encriptar,
+    #desencriptar {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .results-zone {
+        padding: 32px;
+        text-align: center;
+    }
+
+    .results-zone>h2 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 12px;
+    }
+
+    .results-zone>p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+/* CSS para celular */
+@media (max-width: 480px) {
+    .logo {
+        width: 80px;
+        height: 32px;
+        margin-bottom: 16px;
+    }
+
+    .logo>img {
+        height: 100%;
+    }
+
+    .type-zone>textarea {
+        font-size: 20px;
+        padding: 12px;
+    }
+
+    #encriptar,
+    #desencriptar {
+        padding: 16px;
+        font-size: 16px;
+    }
+
+    .results-zone>h2 {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 8px;
+    }
+
+    .results-zone>p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
